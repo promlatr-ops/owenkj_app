@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyWidget(),
+      home: const myButton(),
     );
   }
 }
@@ -95,5 +95,33 @@ class MyWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class myButton extends StatelessWidget {
+  const myButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.network(
+          "https://avatars.githubusercontent.com/u/100008549?v=4",
+          height: 500,
+          width: 500,
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+          onPressed: () {},
+          child: const Text(
+            'Button',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    )));
   }
 }
