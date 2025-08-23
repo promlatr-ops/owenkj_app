@@ -40,9 +40,9 @@ class ProfileCardPage extends StatelessWidget {
                   // Profile Picture
                   Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 60,
-                        backgroundImage: const NetworkImage(
+                        backgroundImage: NetworkImage(
                           "https://scontent.fbkk12-2.fna.fbcdn.net/v/t39.30808-6/494312356_9707126796042007_8197133966312264844_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEMOToBnsEnU7jhfwaVhP6_B0ZUm2Kn8NUHRlSbYqfw1bBV-pplV1LMAKl4mVbl0-Vpt0D5dG9xtaRSwGy3eX2y&_nc_ohc=KPjrHTNozZIQ7kNvwEOiUj_&_nc_oc=Adkcv-y_Im5lrzh8x-2mApuiZiQUF_9294RrXESLgW_TcT8KMhGeJ-JhcnC6DwMTQ60&_nc_zt=23&_nc_ht=scontent.fbkk12-2.fna&_nc_gid=lAb7RkYkJrTJ2us5SNDsGQ&oh=00_AfU9pebClOfeSdAw4e06JvcQCjLLkQ9ydbhpONLoXhbAJA&oe=68AF0B72",
                         ),
                       ),
