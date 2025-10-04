@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProfileCardPage extends StatelessWidget {
   const ProfileCardPage({super.key});
@@ -104,9 +104,8 @@ class ProfileCardPage extends StatelessWidget {
                       Expanded(
                           child: ElevatedButton(
                         onPressed: () {
-                          //ใส่ลิ้งค์แบบนี้เพราะผม demo on brower
-                          html.window
-                              .open('https://github.com/owenkujo', '_blank');
+                          // Open URL cross-platform using url_launcher
+                          launchUrlString('https://github.com/owenkujo');
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.all(16),
@@ -123,10 +122,7 @@ class ProfileCardPage extends StatelessWidget {
                       Expanded(
                           child: IconButton(
                         onPressed: () {
-                          //ใส่ลิ้งค์แบบนี้เพราะผม demo on brower
-                          html.window.open(
-                              'https://www.facebook.com/owen.rapeepat.2025/',
-                              '_blank');
+                          launchUrlString('https://www.facebook.com/owen.rapeepat.2025/');
                         },
                         icon: const Icon(Icons.facebook),
                         color: Colors.white,
@@ -135,10 +131,8 @@ class ProfileCardPage extends StatelessWidget {
                       Expanded(
                           child: IconButton(
                         onPressed: () {
-                          //ใส่ลิ้งค์แบบนี้เพราะผม demo on brower
-                          html.window
-                              .open('https://discord.gg/45uKCm49U9', '_blank');
-                        },
+                          launchUrlString('https://discord.gg/45uKCm49U9');
+                        }
                         icon: const Icon(Icons.discord),
                         color: Colors.white,
                         iconSize: 30,

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'profile_card.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+// profile_card.dart is not used by default; keep the file but avoid importing it here
+import 'pages/air_quality_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  // Load dotenv from assets so it works on web and other platforms
+  dotenv.load(fileName: 'assets/.env').then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ProfileCardPage(),
+      home: const AirQualityPage(),
     );
   }
 }
@@ -99,14 +103,14 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-class myButton extends StatelessWidget {
-  const myButton({super.key});
+class MyButton extends StatelessWidget {
+  const MyButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-            child: Column(
+      child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.network(
