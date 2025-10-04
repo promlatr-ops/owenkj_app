@@ -132,7 +132,7 @@ class ProfileCardPage extends StatelessWidget {
                           child: IconButton(
                         onPressed: () {
                           launchUrlString('https://discord.gg/45uKCm49U9');
-                        }
+                        },
                         icon: const Icon(Icons.discord),
                         color: Colors.white,
                         iconSize: 30,

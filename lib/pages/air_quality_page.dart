@@ -194,7 +194,11 @@ class _AirQualityPageState extends State<AirQualityPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Text(_status, style: const TextStyle(color: Colors.white70)),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.info_outline, color: Colors.white70))
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/products');
+                      },
+                      icon: const Icon(Icons.info_outline, color: Colors.white70))
                 ]),
               ),
               const SizedBox(height: 8)

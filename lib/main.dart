@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+// Use path URL strategy for clean web URLs (no hash)
+import 'package:url_strategy/url_strategy.dart';
 // profile_card.dart is not used by default; keep the file but avoid importing it here
 import 'pages/air_quality_page.dart';
+import 'pages/product_list_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // Use path URL strategy so routes appear like /products instead of /#/products
+  try {
+    setPathUrlStrategy();
+  } catch (_) {}
   // Load dotenv from assets so it works on web and other platforms
   dotenv.load(fileName: 'assets/.env').then((_) => runApp(const MyApp()));
 }
@@ -36,7 +43,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AirQualityPage(),
+      initialRoute: '/',
+        routes: {
+          '/': (c) => const AirQualityPage(),
+          '/products': (c) => const ProductListPage(),
+        },
     );
   }
 }
