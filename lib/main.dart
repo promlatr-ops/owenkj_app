@@ -16,7 +16,8 @@ void main() {
     setPathUrlStrategy();
   } catch (_) {}
   // Load dotenv from assets so it works on web and other platforms
-  dotenv.load(fileName: 'assets/.env').then((_) => runApp(const MyApp()));
+  // For web AssetBundle automatically prefixes 'assets/', so pass just '.env'
+  dotenv.load(fileName: '.env').then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -65,35 +66,65 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/air'),
-            child: const Text('Open Air Quality Page'),
+      appBar: AppBar(
+          title: const Text('Home (Launcher)',
+              style: TextStyle(color: Colors.white))),
+      backgroundColor: Colors.grey[100],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'App Launcher',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                style:
+                    ElevatedButton.styleFrom(minimumSize: const Size(240, 56)),
+                onPressed: () =>
+                    Navigator.pushNamed(context, Assignment1Page.routeName),
+                child: const Text('Open Assignment 1',
+                    style: TextStyle(fontSize: 18)),
+              ),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                style:
+                    ElevatedButton.styleFrom(minimumSize: const Size(240, 56)),
+                onPressed: () =>
+                    Navigator.pushNamed(context, Assignment2Page.routeName),
+                child: const Text('Open Assignment 2',
+                    style: TextStyle(fontSize: 18)),
+              ),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                style:
+                    ElevatedButton.styleFrom(minimumSize: const Size(240, 56)),
+                onPressed: () =>
+                    Navigator.pushNamed(context, Assignment3Page.routeName),
+                child: const Text('Open Assignment 3',
+                    style: TextStyle(fontSize: 18)),
+              ),
+              const SizedBox(height: 24),
+              TextButton(
+                onPressed: () => Navigator.pushNamed(context, '/air'),
+                child: const Text('Open Air Quality Page'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pushNamed(context, '/products'),
+                child: const Text('Open Product List Page'),
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/products'),
-            child: const Text('Open Product List Page'),
-          ),
-          const Divider(),
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, Assignment1Page.routeName),
-            child: const Text('Open Assignment 1'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, Assignment2Page.routeName),
-            child: const Text('Open Assignment 2'),
-          ),
-          const SizedBox(height: 8),
-          ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, Assignment3Page.routeName),
-            child: const Text('Open Assignment 3'),
-          ),
-        ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () =>
+            Navigator.pushNamed(context, Assignment1Page.routeName),
+        label: const Text('View A1'),
+        icon: const Icon(Icons.open_in_new),
       ),
     );
   }
@@ -168,7 +199,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-      child: Column(
+            child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.network(

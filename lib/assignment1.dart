@@ -24,19 +24,19 @@ class Assignment1Page extends StatelessWidget {
                 // ส่วนที่ 1: ความคิดเห็นหลัก
                 Row(
                   children: [
-                    CircleAvatar(radius: 24, child: Text('A')),
+                    CircleAvatar(radius: 24, child: Text('O')),
                     SizedBox(width: 12),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'User A',
+                            'Owen Kujo',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 4),
                           Text(
-                              'This is the main comment. Flutter layouts are fun!'),
+                              'This is the main comment. Final Exam is killing me!'),
                         ],
                       ),
                     ),
