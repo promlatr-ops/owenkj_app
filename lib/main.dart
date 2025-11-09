@@ -8,6 +8,9 @@ import 'pages/product_list_page.dart';
 import 'assignment1.dart';
 import 'assignment2.dart';
 import 'assignment3.dart';
+import 'examway1.dart';
+import 'examway2.dart';
+import 'examway3.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +57,10 @@ class MyApp extends StatelessWidget {
         '/products': (c) => const ProductListPage(),
         Assignment1Page.routeName: (c) => const Assignment1Page(),
         Assignment2Page.routeName: (c) => const Assignment2Page(),
-        Assignment3Page.routeName: (c) => const Assignment3Page(),
+        PostList.routeName: (c) => const PostList(),
+        ExamWay1Page.routeName: (c) => const ExamWay1Page(),
+        ExamWay2Page.routeName: (c) => const ExamWay2Page(),
+        ExamWay3Page.routeName: (c) => const ExamWay3Page(),
       },
     );
   }
@@ -103,7 +109,7 @@ class HomePage extends StatelessWidget {
                 style:
                     ElevatedButton.styleFrom(minimumSize: const Size(240, 56)),
                 onPressed: () =>
-                    Navigator.pushNamed(context, Assignment3Page.routeName),
+                    Navigator.pushNamed(context, PostList.routeName),
                 child: const Text('Open Assignment 3',
                     style: TextStyle(fontSize: 18)),
               ),
