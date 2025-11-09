@@ -5,6 +5,9 @@ import 'package:url_strategy/url_strategy.dart';
 // profile_card.dart is not used by default; keep the file but avoid importing it here
 import 'pages/air_quality_page.dart';
 import 'pages/product_list_page.dart';
+import 'assignment1.dart';
+import 'assignment2.dart';
+import 'assignment3.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,10 +47,54 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-        routes: {
-          '/': (c) => const AirQualityPage(),
-          '/products': (c) => const ProductListPage(),
-        },
+      routes: {
+        '/': (c) => const HomePage(),
+        '/air': (c) => const AirQualityPage(),
+        '/products': (c) => const ProductListPage(),
+        Assignment1Page.routeName: (c) => const Assignment1Page(),
+        Assignment2Page.routeName: (c) => const Assignment2Page(),
+        Assignment3Page.routeName: (c) => const Assignment3Page(),
+      },
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Home')),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, '/air'),
+            child: const Text('Open Air Quality Page'),
+          ),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, '/products'),
+            child: const Text('Open Product List Page'),
+          ),
+          const Divider(),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, Assignment1Page.routeName),
+            child: const Text('Open Assignment 1'),
+          ),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, Assignment2Page.routeName),
+            child: const Text('Open Assignment 2'),
+          ),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, Assignment3Page.routeName),
+            child: const Text('Open Assignment 3'),
+          ),
+        ],
+      ),
     );
   }
 }
